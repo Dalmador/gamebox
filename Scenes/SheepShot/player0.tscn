@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c26fp6hkn2wph"]
+[gd_scene load_steps=3 format=3 uid="uid://c26fp6hkn2wph"]
+
+[ext_resource type="Texture2D" uid="uid://cdayns02wmrqy" path="res://Assets/Textures/sheep.png" id="1_yytig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lv6hl"]
-size = Vector2(718, 1044)
+size = Vector2(987, 590)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1395, 1051)
 shape = SubResource("RectangleShape2D_lv6hl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yytig")

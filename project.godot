@@ -11,5 +11,14 @@ config_version=5
 [application]
 
 config/name="gamebox"
+run/main_scene="res://Scenes/SheepShot/gungame.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Assets/Textures/icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[physics]
+
+2d/default_gravity=1500.0

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ru82x1hxhjvk"]
+
+[ext_resource type="Texture2D" uid="uid://cdayns02wmrqy" path="res://Assets/Textures/sheep.png" id="1_udt07"]
+[ext_resource type="Script" path="res://Scripts/player1.gd" id="1_vrwjf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv6hl"]
+size = Vector2(987, 590)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_vrwjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lv6hl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_udt07")
+flip_h = true

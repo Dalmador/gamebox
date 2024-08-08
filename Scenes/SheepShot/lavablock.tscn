@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct0q0xmrn7ctu"]
+
+[ext_resource type="Texture2D" uid="uid://371gywe7olrf" path="res://Assets/Textures/lava_block.png" id="1_2s8lw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4m0a"]
+size = Vector2(60, 60)
+
+[node name="StaticBody2D4" type="StaticBody2D"]
+position = Vector2(244, 542)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(38, 36)
+scale = Vector2(1, 1.05874)
+shape = SubResource("RectangleShape2D_r4m0a")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 4.0
+offset_right = 204.0
+offset_bottom = 200.0
+scale = Vector2(0.345615, 0.345615)
+texture = ExtResource("1_2s8lw")
