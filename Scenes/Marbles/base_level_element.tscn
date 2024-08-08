@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4exppcu5i4pu"]
+
+[ext_resource type="Texture2D" uid="uid://1cbba3iengha" path="res://Assets/Marbelz/wood.jpg" id="1_x6lmj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gt20j"]
+albedo_texture = ExtResource("1_x6lmj")
+
+[sub_resource type="BoxMesh" id="BoxMesh_xck5n"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q6gka"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kaam"]
+albedo_texture = ExtResource("1_x6lmj")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ue46r"]
+size = Vector3(50, 5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fvacn"]
+
+[node name="BaseLevelElement" type="Node3D"]
+
+[node name="ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
+material_override = SubResource("StandardMaterial3D_gt20j")
+mesh = SubResource("BoxMesh_xck5n")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+shape = SubResource("BoxShape3D_q6gka")
+
+[node name="wall_left" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 16)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall_left"]
+material_override = SubResource("StandardMaterial3D_3kaam")
+mesh = SubResource("BoxMesh_ue46r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_left"]
+shape = SubResource("BoxShape3D_fvacn")
+
+[node name="wall_right" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -16)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall_right"]
+material_override = SubResource("StandardMaterial3D_3kaam")
+mesh = SubResource("BoxMesh_ue46r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_right"]
+shape = SubResource("BoxShape3D_fvacn")

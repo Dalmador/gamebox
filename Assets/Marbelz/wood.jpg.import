@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chfs04ywper0j"
-path.s3tc="res://.godot/imported/icon.svg-8c0dfe7377b8350deb604d8d5f0f7e7b.s3tc.ctex"
+uid="uid://1cbba3iengha"
+path.s3tc="res://.godot/imported/wood.jpg-599d443f649e92ca5428968790424e62.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-8c0dfe7377b8350deb604d8d5f0f7e7b.s3tc.ctex"]
+source_file="res://Assets/Marbelz/wood.jpg"
+dest_files=["res://.godot/imported/wood.jpg-599d443f649e92ca5428968790424e62.s3tc.ctex"]
 
 [params]
 
@@ -33,6 +33,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

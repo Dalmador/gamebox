@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://cex5q3ow0mqv6"]
+
+[ext_resource type="Texture2D" uid="uid://bgjhvy87srlrl" path="res://Assets/Marbelz/red.png" id="1_o120m"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ivt0h"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iw61p"]
+radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vo8tr"]
+albedo_texture = ExtResource("1_o120m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mp4ao"]
+albedo_texture = ExtResource("1_o120m")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_valvs"]
+material = SubResource("StandardMaterial3D_mp4ao")
+radius = 2.0
+height = 4.0
+
+[node name="RigidBody3D" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_ivt0h")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_iw61p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_vo8tr")
+mesh = SubResource("CapsuleMesh_valvs")

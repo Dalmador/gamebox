@@ -1,7 +1,10 @@
-[gd_scene format=3 uid="uid://6lecy1y4qcjv"]
+[gd_scene load_steps=2 format=3 uid="uid://6lecy1y4qcjv"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_tbt6m"]
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2(579, 230)
+script = ExtResource("1_tbt6m")
 
 [node name="Button1" type="Button" parent="."]
 anchors_preset = 13
@@ -13,7 +16,7 @@ offset_right = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "Game 1"
+text = "SheepShot"
 
 [node name="Button2" type="Button" parent="."]
 anchors_preset = 13
@@ -27,5 +30,8 @@ offset_bottom = 127.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "Game 2"
+text = "Marbles"
 metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
