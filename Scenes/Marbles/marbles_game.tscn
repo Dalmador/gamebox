@@ -1,18 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu8e1q6ggo7uj"]
+[gd_scene load_steps=6 format=3 uid="uid://cu8e1q6ggo7uj"]
 
 [ext_resource type="PackedScene" uid="uid://cex5q3ow0mqv6" path="res://Scenes/Marbles/marbles.tscn" id="1_csccm"]
 [ext_resource type="Script" path="res://Scenes/Marbles/marbles_game.gd" id="1_j7nfi"]
 [ext_resource type="PackedScene" uid="uid://d4exppcu5i4pu" path="res://Scenes/Marbles/base_level_element.tscn" id="2_wyv5t"]
+[ext_resource type="Script" path="res://Scenes/Marbles/LevelElementController.gd" id="3_ccuag"]
+[ext_resource type="Script" path="res://Scenes/Marbles/CameraController.gd" id="3_oao4r"]
 
 [node name="MarblesGame" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162966, 0, -0.296183)
 script = ExtResource("1_j7nfi")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 20, 20, 0)
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, -21.096, 11.3166, -6.60208)
+script = ExtResource("3_oao4r")
 
 [node name="redMarble" parent="." instance=ExtResource("1_csccm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.096, 11.3166, -6.60208)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="redMarble"]
+remote_path = NodePath("../../Camera3D")
+update_rotation = false
+update_scale = false
 
 [node name="blueMarble" parent="." instance=ExtResource("1_csccm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 11, 0)
@@ -21,11 +29,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 11, 0)
 transform = Transform3D(1, 0, 0, 0, 0.483282, 0.875464, 0, -0.875464, 0.483282, 0, 40.557, 0)
 shadow_enabled = true
 
-[node name="BaseLevelElement" parent="." instance=ExtResource("2_wyv5t")]
-transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 6.0
 autostart = true
+
+[node name="LevelElementController" type="Node2D" parent="."]
+script = ExtResource("3_ccuag")
+
+[node name="BaseLevelElement1" parent="LevelElementController" instance=ExtResource("2_wyv5t")]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="BaseLevelElement2" parent="LevelElementController" instance=ExtResource("2_wyv5t")]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 47.1, -17.15, 0)
+
+[node name="BaseLevelElement3" parent="LevelElementController" instance=ExtResource("2_wyv5t")]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 94.2, -34.3, 0)
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

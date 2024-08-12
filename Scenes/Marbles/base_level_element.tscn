@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4exppcu5i4pu"]
+[gd_scene load_steps=10 format=3 uid="uid://d4exppcu5i4pu"]
 
+[ext_resource type="Script" path="res://Scenes/Marbles/base_level_element.gd" id="1_a8ngj"]
 [ext_resource type="Texture2D" uid="uid://1cbba3iengha" path="res://Assets/Marbelz/wood.jpg" id="1_x6lmj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gt20j"]
@@ -19,7 +20,11 @@ size = Vector3(50, 5, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvacn"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4kiyr"]
+size = Vector3(50, 5, 30)
+
 [node name="BaseLevelElement" type="Node3D"]
+script = ExtResource("1_a8ngj")
 
 [node name="ground" type="StaticBody3D" parent="."]
 
@@ -50,3 +55,12 @@ mesh = SubResource("BoxMesh_ue46r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall_right"]
 shape = SubResource("BoxShape3D_fvacn")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_4kiyr")
+
+[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]
