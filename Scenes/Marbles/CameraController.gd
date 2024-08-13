@@ -8,6 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.transform.origin += 3 * Vector3(36.0, 12.6, 0.0)
-	pass
+	self.transform.origin += Vector3(36.0, 12.6, 0.0)
 	
